@@ -1,5 +1,5 @@
 http_server:
-    image: simple_http_server
+    image: simple_http_server:$tag
     ports:
         - "5555:5555"
 
