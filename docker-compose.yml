@@ -1,6 +1,5 @@
 http_server:
-#   restart: always
-   image: simple_http_server
-   ports:
-       - "5555:5555"
+    image: simple_http_server
+    ports:
+        - "5555:5555"
 
