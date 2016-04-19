@@ -22,3 +22,4 @@ docker build -t simple_http_server:$TAG .
 tag=$TAG docker-compose up -d
 ```
 Don't forget to enable SCM polling.
+
