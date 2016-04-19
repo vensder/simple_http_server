@@ -1,4 +1,4 @@
-# simple_http_server
+# Simple Python http server in a Docker container
 
 Configure in Advanced settings of Jenkins Job:
 
