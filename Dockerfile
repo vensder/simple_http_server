@@ -1,5 +1,5 @@
 FROM python:2-alpine
-MAINTAINER Docker Education Team <education@docker.com>
+MAINTAINER vensder <vensder@gmail.com>
 ADD ./webapp /opt/webapp/
 WORKDIR /opt/webapp
 EXPOSE 5555
