@@ -1,5 +1,13 @@
 # simple_http_server
 
+Configure in Advanced settings of Jenkins Job:
+
+Refspec:
+``+refs/tags/*:refs/remotes/origin/tags/*``
+
+Branches to build -> Branch Specifier:
+``*/tags/*``
+
 ```sh
 TAG=${GIT_BRANCH##origin/tags/}
 
