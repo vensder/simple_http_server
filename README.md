@@ -1,9 +1,13 @@
 # Simple Python http server in a Docker container
 
-Configure in Advanced settings of Jenkins Job:
+Jenkins can automatically detect and build newly created tags in a git repo.
+
+Configure in Advanced settings of Jenkins Job: 
+Click on the Advanced button below the repository URL and enter this paremeters:
 
 Refspec:
 ``+refs/tags/*:refs/remotes/origin/tags/*``
+
 
 Branches to build -> Branch Specifier:
 ``*/tags/*``
