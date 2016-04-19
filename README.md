@@ -8,6 +8,8 @@ Refspec:
 Branches to build -> Branch Specifier:
 ``*/tags/*``
 
+
+Include this commands in Jenkins Job script:
 ```sh
 TAG=${GIT_BRANCH##origin/tags/}
 
