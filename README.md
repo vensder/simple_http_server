@@ -1,5 +1,7 @@
 # Simple Python http server in a Docker container
 
+Simple Python 2.7 HTTP server with GET, POST and HEAD requests handling in a Docker container.
+
 Jenkins can automatically detect and build newly created tags in a git repo.
 
 Configure in Advanced settings of Jenkins Job: 
