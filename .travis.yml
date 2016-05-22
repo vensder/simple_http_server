@@ -9,4 +9,6 @@ install:
 
 script:
   - docker ps | grep -q http_server
-  - docker exec http_server ps      
+  - docker exec http_server ps
+  - docker exec http_server wget -qO- http://127.0.0.1:5555
+
