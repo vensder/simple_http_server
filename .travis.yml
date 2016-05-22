@@ -5,7 +5,7 @@ services:
 
 install:
   - docker build -t simple_http_server:latest .
-  - docker up -d -p 127.0.0.1:5555:5555 --name http_server simple_http_server
+  - docker run -d -p 127.0.0.1:5555:5555 --name http_server simple_http_server
 
 script:
   - docker ps | grep -q http_server
