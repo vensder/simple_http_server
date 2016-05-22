@@ -9,4 +9,4 @@ install:
 
 script:
   - docker ps | grep -q http_server
-  - curl http://127.0.0.1:5555 | grep -i python    
+  - curl http://127.0.0.1:5555     
