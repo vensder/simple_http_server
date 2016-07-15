@@ -35,7 +35,7 @@ class S(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self._set_headers()
-        self.wfile.write("<html><body><h1>Python version: " + current_python_version + "</h1></body></html>")
+        self.wfile.write("<html><body><h1>You're welcome!<h1><p>Python version: " + current_python_version + "</p></body></html>")
 
     def do_HEAD(self):
         self._set_headers()
