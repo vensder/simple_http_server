@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vensder/simple_http_server.svg?branch=master)](https://travis-ci.org/vensder/simple_http_server)
+
 # Simple Python http server in a Docker container
 
 Simple Python 2.7 HTTP server with GET, POST and HEAD requests handling in a Docker container.
