@@ -15,7 +15,7 @@ Send a HEAD request::
 Send a POST request::
     curl -d "foo=bar&bin=baz" http://localhost
 
-docker run -d --name my-http -p 5555:5555 -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python http4.py
+docker run -d --name my-http -p 3001:3001 -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:2-alpine python http4.py
 
 """
 
@@ -45,7 +45,7 @@ class S(BaseHTTPRequestHandler):
         self._set_headers()
         self.wfile.write("<html><body><h1>POST!</h1></body></html>")
         
-def run(server_class=HTTPServer, handler_class=S, port=5555):
+def run(server_class=HTTPServer, handler_class=S, port=3001):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print 'Starting httpd...'
