@@ -23,12 +23,18 @@ from sys import argv
 from platform import python_version
 #from platform import node
 from socket import gethostname
+from urllib import urlopen
+import re
 
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import SocketServer
 
+def getPublicIp():
+    data = str(urlopen('http://checkip.dyndns.com/').read())
+
 current_python_version = str(python_version())
 current_hostname = str(gethostname())
+public_ip = str(getPublicIp())
 
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -43,8 +49,9 @@ class S(BaseHTTPRequestHandler):
                 <body>
                 <h1>Python version: %s</h1>
                 <h2>Hostname: %s</h2>
+                <h2>Public IP: %s</h2>
                 </body>
-                </html>''' % (current_python_version, current_hostname))
+                </html>''' % (current_python_version, current_hostname, public_ip))
 
     def do_HEAD(self):
         self._set_headers()
