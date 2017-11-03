@@ -29,12 +29,9 @@ import re
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import SocketServer
 
-def getPublicIp():
-    data = str(urlopen('http://checkip.dyndns.com/').read())
-
 current_python_version = str(python_version())
 current_hostname = str(gethostname())
-public_ip = str(getPublicIp())
+public_ip = str(urlopen('http://checkip.dyndns.com/').read())
 
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -49,7 +46,7 @@ class S(BaseHTTPRequestHandler):
                 <body>
                 <h1>Python version: %s</h1>
                 <h2>Hostname: %s</h2>
-                <h2>Public IP: %s</h2>
+                <h2>%s</h2>
                 </body>
                 </html>''' % (current_python_version, current_hostname, public_ip))
 
