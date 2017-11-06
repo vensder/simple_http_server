@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker build -t simple_http_server:development .
+  - docker run -d -p 127.0.0.1:5555:5555 --name http_server simple_http_server
+
+script:
+  - docker ps | grep -q http_server
+  - docker exec http_server ps
+  - docker exec http_server sleep 2
+  - docker exec http_server wget -qO- http://127.0.0.1:5555
