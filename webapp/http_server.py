@@ -21,17 +21,12 @@ docker run -d --name my-http -p 5555:5555 -v "$PWD":/usr/src/myapp -w /usr/src/m
 
 from sys import argv
 from platform import python_version
-#from platform import node
 from socket import gethostname
 from urllib import urlopen
 import re
 
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import SocketServer
-
-current_python_version = str(python_version())
-current_hostname = str(gethostname())
-public_ip = str(urlopen('http://169.254.169.254/latest/meta-data/public-ipv4').read())
 
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
@@ -65,6 +60,10 @@ def run(server_class=HTTPServer, handler_class=S, port=5555):
     httpd.serve_forever()
 
 if __name__ == "__main__":
+
+    current_python_version = str(python_version())
+    current_hostname = str(gethostname())
+    public_ip = str(urlopen('http://169.254.169.254/latest/meta-data/public-ipv4').read())
     
     if len(argv) == 2:
         run(port=int(argv[1]))
