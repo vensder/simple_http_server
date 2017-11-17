@@ -31,7 +31,7 @@ import SocketServer
 
 current_python_version = str(python_version())
 current_hostname = str(gethostname())
-public_ip = str(urlopen('http://checkip.dyndns.com/').read())
+public_ip = str(urlopen('http://169.254.169.254/latest/meta-data/public-ipv4').read())
 
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
