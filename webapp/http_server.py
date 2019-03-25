@@ -24,6 +24,7 @@ from platform import python_version
 
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import SocketServer
+import json
 
 current_python_version = str(python_version())
 
@@ -43,7 +44,14 @@ class S(BaseHTTPRequestHandler):
     def do_POST(self):
         # Doesn't do anything with posted data
         self._set_headers()
-        self.wfile.write("<html><body><h1>POST!</h1></body></html>")
+        #self.wfile.write("<html><body><h1>POST!</h1></body></html>")
+        content_len = int(self.headers.getheader('content-length', 0))
+        post_body = self.rfile.read(content_len)
+        # print(post_body)
+        parsed = json.loads(post_body)
+        print(json.dumps(parsed, indent=4, sort_keys=True))
+        
+        #self.wfile.write(post_body)
         
 def run(server_class=HTTPServer, handler_class=S, port=80):
     server_address = ('', port)
