@@ -47,9 +47,12 @@ class S(BaseHTTPRequestHandler):
         #self.wfile.write("<html><body><h1>POST!</h1></body></html>")
         content_len = int(self.headers.getheader('content-length', 0))
         post_body = self.rfile.read(content_len)
-        # print(post_body)
-        parsed = json.loads(post_body)
-        print(json.dumps(parsed, indent=4, sort_keys=True))
+        try:
+            parsed = json.loads(post_body)
+            print(json.dumps(parsed, indent=4, sort_keys=True))
+        except:
+            print("Probably it is not a json")
+            print(post_body)
         
         #self.wfile.write(post_body)
         
